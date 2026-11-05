@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAUD IT Al-Kautsar - Sekolah Inklusif, Islami & Menyenangkan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                sunYellow: '#D4A373',      /* Coklat Muda / Warm Wood */
+                skyBlue: '#8F9779',        /* Hijau Olive Lembut */
+                mintGreen: '#588157',      /* Hijau Daun / Sage */
+                coralWarm: '#A3704C',      /* Coklat Tua / Terracotta */
+                softPurple: '#3A5A40',     /* Hijau Tua Khas Islami */
+                bgCream: '#F4F1DE'         /* Krem Hangat Ala Natural */
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            }
+        }
+    }
+} 
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background-color: #FFF9E6;
+            background-image: radial-gradient(#FFD166 1.5px, transparent 1.5px), radial-gradient(#4EA8DE 1.5px, #FFF9E6 1.5px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+        }
+    </style>
+</head>
+<body class="bg-bgCream text-slate-800 antialiased">
+
+    <!-- MODAL NOTIFIKASI / ALERT KUSTOM -->
+    <div id="customModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl transform transition-all text-center border-4 border-yellow-200">
+            <div id="modalIcon" class="w-16 h-16 bg-green-100 text-mintGreen rounded-full flex items-center justify-center mx-auto mb-4 text-2xl shadow-inner">
+                <i class="fa-solid fa-face-smile-beam"></i>
+            </div>
+            <h3 id="modalTitle" class="text-2xl font-extrabold text-slate-900 mb-2">Berhasil!</h3>
+            <p id="modalMessage" class="text-slate-600 mb-6 text-sm">Pesan Anda telah kami terima.</p>
+            <button onclick="closeModal()" class="w-full bg-coralWarm hover:bg-red-500 text-white font-bold py-3.5 px-6 rounded-2xl transition shadow-lg shadow-red-500/30">
+                Tutup & Kembali
+            </button>
+        </div>
+    </div>
+
+   <!-- HEADER & NAVIGASI -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-yellow-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#beranda" class="flex items-center gap-3 group shrink-0">
+                    <div class="w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden shadow-md group-hover:scale-105 transition bg-white border border-slate-200">
+                        <img src="logo sekolah.jpg" alt="Logo PAUD IT Al-Kautsar" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <span class="block text-lg font-extrabold tracking-tight text-slate-900 leading-tight">PAUD IT Al-Kautsar</span>
+                        <span class="text-[11px] font-semibold text-coralWarm">Islami, Inklusif, Cerdas & Berkarakter</span>
+                    </div>
+                </a>
+
+                <!-- Navigasi Desktop (Lengkap dengan Menu Ekstrakurikuler & Inklusi) -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#beranda" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Beranda</a>
+                    <a href="#profil" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Profil</a>
+                    <a href="#visimisi" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Visi Misi</a>
+                    <a href="#program" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Program</a>
+                    <a href="#ekstrakurikuler" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Ekskul</a>
+                    <a href="#inklusi" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Inklusi</a>
+                    <a href="#video" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Video</a>
+                    <a href="#guru" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Guru</a>
+                    <a href="#galeri" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Galeri</a>
+                    <a href="#testimoni" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Testimoni</a>
+                    <a href="#kontak" class="px-2 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-coralWarm hover:bg-orange-50 transition">Kontak</a>
+                    <a href="#pengembang" class="px-2 py-2 rounded-lg text-xs font-semibold text-coralWarm hover:bg-orange-50 transition">Pengembang</a>
+                    <a href="#pendaftaran" class="ml-2 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-coralWarm hover:bg-red-500 shadow-md shadow-coralWarm/30 transition">PPDB Online</a>
+                </nav>
+
+                <!-- Tombol Menu Mobile untuk Layar HP -->
+                <div class="lg:hidden flex items-center gap-2">
+                    <a href="#pendaftaran" class="bg-coralWarm text-white px-3 py-2 rounded-xl text-xs font-bold">PPDB</a>
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-xl text-slate-700 hover:bg-orange-50">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Dropdown Khusus Mobile (HP) -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-1 shadow-lg">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Beranda</a>
+            <a href="#profil" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Profil Sekolah</a>
+            <a href="#visimisi" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Visi & Misi</a>
+            <a href="#program" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Program & Sentra Pembelajaran</a>
+            <a href="#ekstrakurikuler" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Ekstrakurikuler Pilihan</a>
+            <a href="#inklusi" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Program Inklusi Ramah ABK</a>
+            <a href="#video" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Video Pembelajaran & Kegiatan</a>
+            <a href="#guru" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Daftar Guru Pendidik</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Galeri Kegiatan</a>
+            <a href="#testimoni" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Testimoni Orang Tua</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Alamat & Kontak</a>
+            <a href="#pengembang" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-orange-50">Profil Pengembang</a>
+            <a href="#pendaftaran" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-bold text-white bg-coralWarm text-center shadow-md mt-2">Formulir Pendaftaran PPDB</a>
+        </div>
+    </header>
+    <!-- 1 & 2. HALAMAN UTAMA / BERANDA (Hero Section & Sambutan) -->
+    <section id="beranda" class="hero-bg py-16 md:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold shadow-sm">
+                        <i class="fa-solid fa-star text-sunYellow"></i> Penerimaan Siswa Baru Tahun Ajaran 2026/2027 Telah Dibuka
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Sekolah Generasi Qur'ani, <span class="text-coralWarm underline decoration-sunYellow decoration-wavy">Inklusif & Menyenangkan</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Selamat datang di PAUD IT Al-Kautsar. Kami menghadirkan lingkungan belajar yang Islami, ramah anak, serta inklusif yang terbuka bagi anak reguler maupun Anak Berkebutuhan Khusus (ABK) untuk tumbuh ceria bersama.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#pendaftaran" class="bg-coralWarm hover:bg-red-500 text-white font-extrabold px-8 py-4 rounded-2xl shadow-lg transition text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-file-pen"></i> Daftar PPDB Online
+                        </a>
+                        <a href="#program" class="bg-white hover:bg-slate-50 text-slate-700 border-2 border-yellow-200 font-extrabold px-6 py-4 rounded-2xl shadow-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-shapes text-skyBlue"></i> Lihat Program
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-4 bg-gradient-to-tr from-sunYellow via-skyBlue to-coralWarm rounded-3xl opacity-30 blur-lg"></div>
+                        <img src="gedung sekolah.jpg" alt="Gedung PAUD IT Al-Kautsar" class="relative rounded-3xl shadow-2xl object-cover w-full h-[440px]">
+                        
+                        <div class="absolute -bottom-8 -left-6 bg-white p-5 rounded-3xl shadow-xl border-2 border-yellow-100 max-w-xs">
+                            <div class="flex items-center gap-3 mb-2">
+                                <img src="kepala sekolah.JPEG" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80'" alt="Kepala Sekolah" class="w-12 h-12 rounded-full object-cover border-2 border-coralWarm">
+                                <div>
+                                    <h4 class="font-extrabold text-slate-900 text-sm">Diah Ayu Septiani M.Pd.</h4>
+                                    <span class="text-[11px] font-bold text-coralWarm block">Kepala Sekolah PAUD IT Al-Kautsar</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500 italic leading-snug">"Pendidikan anak usia dini adalah fondasi awal membentuk generasi Qur'ani yang cerdas, berakhlak mulia, dan inklusif."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PROFIL SEKOLAH, SEJARAH & NILAI -->
+    <section id="profil" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-coralWarm font-bold text-sm tracking-widest uppercase bg-orange-100 px-3.5 py-1 rounded-full">Tentang Kami</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Profil PAUD IT Al-Kautsar</h2>
+                <p class="text-slate-600 mt-2">Mengenal sejarah berdirinya sekolah serta komitmen kami dalam menghadirkan pendidikan inklusif dan Islami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900">Sejarah Singkat & Komitmen Inklusi</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Berdiri dengan komitmen mendalam terhadap dunia pendidikan anak, PAUD IT Al-Kautsar hadir sebagai lembaga yang memadukan fondasi nilai-nilai Qur'ani dengan layanan pendidikan inklusif yang ramah bagi seluruh anak.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        Kami percaya bahwa setiap anak memiliki keunikan dan hak yang sama untuk mendapatkan stimulasi terbaik. Oleh karena itu, kami menyediakan lingkungan belajar yang akomodatif, didampingi oleh guru pendamping khusus (shadow teacher), serta fasilitas yang mendukung tumbuh kembang anak reguler maupun Anak Berkebutuhan Khusus (ABK).
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-orange-50 p-4 rounded-2xl border border-orange-100">
+                            <i class="fa-solid fa-shield-heart text-coralWarm text-2xl mb-1"></i>
+                            <h4 class="font-bold text-slate-800 text-sm">100% Inklusif & Aman</h4>
+                            <p class="text-xs text-slate-500">Terbuka untuk anak reguler & ABK.</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                            <i class="fa-solid fa-award text-skyBlue text-2xl mb-1"></i>
+                            <h4 class="font-bold text-slate-800 text-sm">Berbasis Qur'ani</h4>
+                            <p class="text-xs text-slate-500">Membentuk karakter mulia sejak dini.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="halaman sekolah.jpg" alt="Halaman PAUD IT Al-Kautsar" class="rounded-3xl shadow-md object-cover w-full h-52">
+                    <img src="kegiatan sentra.jpg" alt="Kegiatan Pembelajaran Sentra" class="rounded-3xl shadow-md object-cover w-full h-52 mt-6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. VISI & MISI -->
+    <section id="visimisi" class="py-20 bg-bgCream border-y border-yellow-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-skyBlue font-bold text-sm tracking-widest uppercase bg-blue-100 px-3.5 py-1 rounded-full">Arah & Tujuan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Visi & Misi PAUD IT Al-Kautsar</h2>
+                <p class="text-slate-600 mt-2">Komitmen kami dalam membimbing buah hati menggapai masa depan gemilang yang berlandaskan nilai Islam dan inklusivitas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+                <div class="bg-gradient-to-br from-[#3A5A40] via-[#588157] to-[#A3704C] p-8 sm:p-10 rounded-3xl shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <div class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 text-white shadow-inner">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold mb-4 tracking-wide">Visi Sekolah</h3>
+                        <p class="font-medium text-lg sm:text-xl italic leading-relaxed bg-black/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10">
+                            "Terwujudnya Generasi yang Qur'ani, Cerdas, Berkarakter Mulia, Mandiri, dan Inklusif."
+                        </p>
+                    </div>
+                    <div class="mt-8 text-xs text-white/80 flex items-center gap-2">
+                        <i class="fa-solid fa-star text-sunYellow"></i> Fondasi kuat menuju jenjang sekolah dasar yang berkarakter.
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 text-amber-800 rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 shadow-sm">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mb-6">Misi Sekolah</h3>
+                        <ul class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                            <li class="flex items-start gap-3">
+                                <span class="bg-[#588157] text-white font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs">1</span>
+                                <span>Menanamkan nilai-nilai keimanan, ketakwaan, dan kecintaan pada Al-Qur'an sejak usia dini.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-[#588157] text-white font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs">2</span>
+                                <span>Menyelenggarakan layanan pendidikan inklusif yang ramah dan adil bagi seluruh anak, termasuk Anak Berkebutuhan Khusus (ABK).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-[#588157] text-white font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs">3</span>
+                                <span>Menerapkan model pembelajaran Sentra berbasis bermain bermakna untuk mengoptimalkan potensi anak.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="bg-[#588157] text-white font-bold w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs">4</span>
+                                <span>Membentuk karakter anak yang berakhlak mulia, disiplin, peduli sesama, dan percaya diri.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROGRAM & MODEL PEMBELAJARAN -->
+    <section id="program" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-coralWarm font-bold text-sm tracking-widest uppercase bg-orange-100 px-3.5 py-1 rounded-full">Layanan & Metode</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Program & Model Pembelajaran</h2>
+                <p class="text-slate-600 mt-2">Disesuaikan dengan tahap tumbuh kembang anak untuk merangsang kecerdasan menyeluruh melalui pendekatan sentra.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gradient-to-br from-amber-50 to-orange-100 p-8 rounded-3xl border-2 border-orange-200 shadow-md flex flex-col justify-between hover:scale-[1.02] transition">
+                    <div>
+                        <span class="bg-orange-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full uppercase shadow-sm">KB</span>
+                        <h3 class="text-xl font-extrabold text-slate-900 mt-4 mb-2">Kelompok Bermain</h3>
+                        <span class="text-xs font-bold text-orange-700 block mb-4 bg-orange-200/50 px-2.5 py-1 rounded-md w-max">Usia 2 - 4 Tahun</span>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Fokus pada stimulasi sensorik, sosialisasi awal dengan teman sebaya, kemandirian dasar, serta pengenalan nilai agama melalui bermain.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-orange-200 flex items-center justify-between text-xs font-semibold text-slate-600">
+                        <span><i class="fa-regular fa-clock text-orange-600 mr-1"></i> Senin - Kamis (08.00 - 11.00)</span>
+                        <a href="#pendaftaran" class="text-orange-700 hover:underline font-bold flex items-center gap-1">Daftar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-50 to-green-100 p-8 rounded-3xl border-2 border-green-200 shadow-md flex flex-col justify-between hover:scale-[1.02] transition">
+                    <div>
+                        <span class="bg-[#588157] text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full uppercase shadow-sm">TK</span>
+                        <h3 class="text-xl font-extrabold text-slate-900 mt-4 mb-2">Taman Kanak-Kanak (A & B)</h3>
+                        <span class="text-xs font-bold text-emerald-800 block mb-4 bg-green-200/50 px-2.5 py-1 rounded-md w-max">Usia 4 - 6 Tahun</span>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Persiapan matang masuk SD melalui literasi dini, numerasi menyenangkan, sains sederhana, pembentukan karakter, dan pembiasaan Qur'ani.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-green-200 flex items-center justify-between text-xs font-semibold text-slate-600">
+                        <span><i class="fa-regular fa-clock text-[#588157] mr-1"></i> Senin - Jumat (07.30 - 11.30)</span>
+                        <a href="#pendaftaran" class="text-[#588157] hover:underline font-bold flex items-center gap-1">Daftar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-sky-50 to-blue-100 p-8 rounded-3xl border-2 border-blue-200 shadow-md flex flex-col justify-between hover:scale-[1.02] transition">
+                    <div>
+                        <span class="bg-sky-600 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full uppercase shadow-sm">DC</span>
+                        <h3 class="text-xl font-extrabold text-slate-900 mt-4 mb-2">Daycare / Full Day Care</h3>
+                        <span class="text-xs font-bold text-sky-800 block mb-4 bg-blue-200/50 px-2.5 py-1 rounded-md w-max">Usia 2 - 6 Tahun</span>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Solusi aman bagi orang tua bekerja. Dilengkapi pengasuh profesional, makan siang bergizi seimbang, tidur siang, dan stimulasi harian.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-blue-200 flex items-center justify-between text-xs font-semibold text-slate-600">
+                        <span><i class="fa-regular fa-clock text-sky-600 mr-1"></i> Senin - Jumat (07.00 - 16.00)</span>
+                        <a href="#pendaftaran" class="text-sky-700 hover:underline font-bold flex items-center gap-1">Daftar <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-bgCream p-8 sm:p-12 rounded-3xl border-2 border-yellow-200">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h3 class="text-2xl font-extrabold text-slate-900">Pilihan Sentra Pembelajaran</h3>
+                    <p class="text-slate-600 text-sm mt-2">Penerapan model sentra interaktif yang dirancang khusus untuk mengoptimalkan kecerdasan majemuk anak.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-orange-100 text-coralWarm rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-flask"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra STEAM</h4><p class="text-xs text-slate-500 mt-1">Sains, teknologi, teknik, seni, matematika.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-blue-100 text-skyBlue rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-cubes"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Balok</h4><p class="text-xs text-slate-500 mt-1">Logika spasial dan konstruksi bangunan.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-green-100 text-mintGreen rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-person-running"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Olah Tubuh</h4><p class="text-xs text-slate-500 mt-1">Motorik kasar, kelenturan, kesehatan fisik.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-masks-theater"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Peran</h4><p class="text-xs text-slate-500 mt-1">Mengasah empati, sosial, dan imajinasi.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-seedling"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Bahan Alam</h4><p class="text-xs text-slate-500 mt-1">Eksplorasi tekstur dan sains natural.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-sky-100 text-sky-700 rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-book-open"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Bahasa</h4><p class="text-xs text-slate-500 mt-1">Keaksaraan awal, bercerita, komunikasi.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-kaaba"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Ibadah</h4><p class="text-xs text-slate-500 mt-1">Praktik sholat, doa harian, nilai Qur'ani.</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-yellow-100 flex items-start gap-4">
+                        <div class="w-10 h-10 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center shrink-0 font-bold"><i class="fa-solid fa-palette"></i></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sentra Seni</h4><p class="text-xs text-slate-500 mt-1">Kreativitas estetika & motorik halus.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- EKSTRAKURIKULER PILIHAN UNTUK ANAK TK -->
+    <section id="ekstrakurikuler" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-coralWarm font-bold text-sm tracking-widest uppercase bg-orange-100 px-3.5 py-1 rounded-full">Bakat & Minat</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Kegiatan Ekstrakurikuler Pilihan</h2>
+                <p class="text-slate-600 mt-2">Wadah pengembangan potensi, kreativitas, dan rasa percaya diri buah hati melalui kegiatan yang menyenangkan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1. Seni dan Kreativitas -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-orange-100 text-coralWarm rounded-2xl flex items-center justify-center text-xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Seni & Kreativitas</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Menggambar, mewarnai, melukis, serta kerajinan tangan (loose parts) untuk melatih motorik halus dan imajinasi anak.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Seni Musik dan Tari -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-2xl flex items-center justify-center text-xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Seni Musik & Tari</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Menari tradisional, menyanyi, bermain angklung, atau drumband untuk melatih ritme, kekompakan, dan kepekaan rasa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Olahraga dan Bela Diri -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-green-100 text-mintGreen rounded-2xl flex items-center justify-center text-xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Olahraga & Gerak</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Futsal ceria, senam, atau game motorik aktif guna mendukung perkembangan motorik kasar dan kesehatan fisik anak.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Sains dan Teknologi -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-blue-100 text-skyBlue rounded-2xl flex items-center justify-center text-xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Sains & Teknologi</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Fun science (eksperimen sains sederhana yang aman) dan pengenalan robotika dasar menggunakan blok bangunan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM INKLUSI SEKOLAH RAMAH ABK -->
+    <section id="inklusi" class="py-20 bg-bgCream border-t border-yellow-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-skyBlue font-bold text-sm tracking-widest uppercase bg-blue-100 px-3.5 py-1 rounded-full">Layanan Khusus</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Program Inklusi Ramah Anak</h2>
+                <p class="text-slate-600 mt-2">Komitmen kami memberikan layanan pendidikan yang adil, akomodatif, dan ramah bagi Anak Berkebutuhan Khusus (ABK).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Asesmen Tumbuh Kembang -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-clipboard-user"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Asesmen Tumbuh Kembang Awal</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Melakukan evaluasi perkembangan anak secara menyeluruh (seperti deteksi dini speech delay atau spektrum autis) sebelum masuk sekolah untuk merancang layanan yang tepat.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Program Pembelajaran Individual (PPI) -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-sky-100 text-skyBlue rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Program Pembelajaran Individual (PPI)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kurikulum reguler dimodifikasi secara khusus agar sesuai dengan kemampuan dan karakteristik unik Anak Berkebutuhan Khusus (ABK).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Guru Pendamping Khusus (Shadow Teacher) -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-orange-100 text-coralWarm rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Guru Pendamping Khusus (Shadow Teacher)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Penyediaan pendamping khusus (rasio 1:1 atau 1:2) untuk membantu ABK mengikuti kegiatan kelas reguler atau sesi khusus dengan nyaman.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Program Healthy Morning (PHM) -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Program Healthy Morning (PHM)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kegiatan senam, peregangan, atau pola gerak dasar untuk mengaktifkan sistem saraf sensorimotor dan meningkatkan fokus anak.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Layanan Terapi Terintegrasi -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-hand-holding-medical"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Layanan Terapi Terintegrasi</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Penyediaan fasilitas atau jadwal rutin terapi (seperti terapi wicara atau okupasi) bekerja sama dengan tenaga profesional atau psikolog.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 6. Kelas Transisi atau Kelas Adaptasi -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-stairs"></i>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-2">Kelas Transisi / Adaptasi</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Pembagian model kelas, mulai dari kelas reguler penuh dengan adaptasi ringan, kelas gabungan, hingga kelas khusus bagi anak yang memerlukan pendampingan intens.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- 5. VIDEO KEGIATAN SEKOLAH -->
+    <section id="video" class="py-20 bg-bgCream border-y border-yellow-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-softPurple font-bold text-sm tracking-widest uppercase bg-purple-100 px-3.5 py-1 rounded-full">Dokumentasi & Aktivitas</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Video Pembelajaran & Kegiatan</h2>
+                <p class="text-slate-600 mt-2">Saksikan keseruan anak-anak belajar, bernyanyi, senam pagi, dan berkegiatan di PAUD IT Al-Kautsar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative aspect-video flex flex-col justify-end p-0 border-4 border-yellow-100">
+                    <video id="mainVideo" controls class="absolute inset-0 w-full h-full object-cover" poster="kegiatan sentra.jpg">
+                        <source id="videoSource" src="video sentra.MP4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video.
+                    </video>
+                </div>
+
+                <div class="lg:col-span-4 space-y-4">
+                    <h3 class="font-extrabold text-slate-900 text-lg mb-2">Pilih Video Kegiatan</h3>
+                    
+                    <div onclick="changeVideo('video sentra.MP4', 'kegiatan sentra.jpg')" class="bg-white p-4 rounded-2xl shadow-sm border-2 border-yellow-200 flex items-center gap-4 cursor-pointer hover:border-[#588157] transition group">
+                        <div class="w-12 h-12 bg-orange-100 text-coralWarm rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:bg-coralWarm group-hover:text-white transition"><i class="fa-solid fa-play"></i></div>
+                        <div><h4 class="font-extrabold text-slate-900 text-sm">Keseruan Bermain di Sentra</h4><p class="text-xs text-slate-500 mt-0.5">Eksplorasi Pembelajaran</p></div>
+                    </div>
+
+                    <div onclick="changeVideo('video senam pagi.MP4', 'senam pagi.jpg')" class="bg-white p-4 rounded-2xl shadow-sm border-2 border-yellow-200 flex items-center gap-4 cursor-pointer hover:border-[#588157] transition group">
+                        <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:bg-yellow-500 group-hover:text-white transition"><i class="fa-solid fa-play"></i></div>
+                        <div><h4 class="font-extrabold text-slate-900 text-sm">Senam Pagi & Gerak Ceria</h4><p class="text-xs text-slate-500 mt-0.5">Olah Tubuh & Kesehatan</p></div>
+                    </div>
+
+                    <div onclick="changeVideo('video mengaji.MP4', 'mengaji.jpg')" class="bg-white p-4 rounded-2xl shadow-sm border-2 border-yellow-200 flex items-center gap-4 cursor-pointer hover:border-[#588157] transition group">
+                        <div class="w-12 h-12 bg-green-100 text-[#588157] rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:bg-[#588157] group-hover:text-white transition"><i class="fa-solid fa-play"></i></div>
+                        <div><h4 class="font-extrabold text-slate-900 text-sm">Mengaji & Kegiatan Islami</h4><p class="text-xs text-slate-500 mt-0.5">Tilawati & Doa Harian</p></div>
+                    </div>
+
+                    <div onclick="changeVideo('video outing class.MP4', 'outing class.jpg')" class="bg-white p-4 rounded-2xl shadow-sm border-2 border-yellow-200 flex items-center gap-4 cursor-pointer hover:border-[#588157] transition group">
+                        <div class="w-12 h-12 bg-blue-100 text-skyBlue rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:bg-skyBlue group-hover:text-white transition"><i class="fa-solid fa-play"></i></div>
+                        <div><h4 class="font-extrabold text-slate-900 text-sm">Outing Class Mengenal Alam</h4><p class="text-xs text-slate-500 mt-0.5">Belajar di Luar Sekolah</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function changeVideo(videoFile, posterFile) {
+            const video = document.getElementById('mainVideo');
+            const source = document.getElementById('videoSource');
+            source.src = videoFile;
+            video.poster = posterFile;
+            video.load();
+            video.play();
+        }
+    </script>
+
+   
+<!-- 6. TENAGA PENDIDIK & PIMPINAN -->
+    <section id="guru" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mintGreen font-bold text-sm tracking-widest uppercase bg-green-100 px-3.5 py-1 rounded-full">Pendidik Profesional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Pimpinan & Tenaga Pendidik</h2>
+                <p class="text-slate-600 mt-2">Dibimbing oleh tenaga pendidik profesional yang berdedikasi tinggi serta terlatih dalam pembelajaran sentra dan pendidikan anak usia dini.</p>
+            </div>
+
+            <!-- Grid 4 Kolom ke Samping -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- 1. Kepala Sekolah -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="kepala sekolah.JPEG" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'" alt="Kepala Sekolah" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Diah Ayu Septiani, M.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-coralWarm block mt-1 bg-orange-100 px-3 py-0.5 rounded-full">Kepala Sekolah</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Memimpin visi pendidikan inklusif & karakter Qur'ani.</p>
+                </div>
+
+                <!-- 2. Wakil Kepala Sekolah -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="wakil kepala sekolah.jpg" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'" alt="Wakil Kepala Sekolah" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Azalea M. S., S.Pd., Gr.</h3>
+                    <span class="text-[11px] font-extrabold text-skyBlue block mt-1 bg-blue-100 px-3 py-0.5 rounded-full">Wakil Kepala Sekolah</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Mengkoordinasikan kurikulum sentra & manajemen sekolah.</p>
+                </div>
+
+                <!-- 3. Guru KB (Kelompok Bermain) - guru_01.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_01.jpg" onerror="this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80'" alt="Guru KB" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Siti Aminah, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-amber-700 block mt-1 bg-amber-100 px-3 py-0.5 rounded-full">Guru Kelompok Bermain (KB)</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Stimulasi sensorik & sosialisasi awal anak usia 2-4 tahun.</p>
+                </div>
+
+                <!-- 4. Guru Sentra 1 - guru_02.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_02.jpg" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Kemilau Salsabila, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra STEAM</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Eksplorasi sains, teknologi & matematika sederhana.</p>
+                </div>
+
+                <!-- 5. Guru Sentra 2 - guru_03.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_03.jpg" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Dewi Lestari, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Balok</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Melatih logika spasial & konstruksi bangunan.</p>
+                </div>
+
+                <!-- 6. Guru Sentra 3 - guru_04.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_04.jpg" onerror="this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Anisa Fitriani, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Olah Tubuh</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Pengembangan motorik kasar & kesehatan fisik.</p>
+                </div>
+
+                <!-- 7. Guru Sentra 4 - guru_05.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_05.jpg" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Rizka Amelia, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Peran</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Mengasah empati, sosial, dan imajinasi anak.</p>
+                </div>
+
+                <!-- 8. Guru Sentra 5 - guru_06.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_06.jpg" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Siti Rahma, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Bahan Alam</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Eksplorasi tekstur dan sains natural.</p>
+                </div>
+
+                <!-- 9. Guru Sentra 6 - guru_07.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_07.jpg" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Nurul Hidayah, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Bahasa</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Keaksaraan awal, bercerita & komunikasi.</p>
+                </div>
+
+                <!-- 10. Guru Sentra 7 - guru_08.jpg -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center">
+                    <img src="guru_08.jpg" onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80'" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Aisyah Putri, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Ibadah</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Praktik sholat, doa harian & nilai Qur'ani.</p>
+                </div>
+
+                <!-- 11. Guru Sentra 8 - guru_09.png -->
+                <div class="bg-bgCream p-6 rounded-3xl border-2 border-yellow-200 text-center shadow-md flex flex-col items-center sm:col-span-2 lg:col-span-1">
+                    <img src="guru_09.png" alt="Guru Sentra" class="w-24 h-24 rounded-full object-cover mb-3 border-4 border-white shadow-md">
+                    <h3 class="font-extrabold text-slate-900 text-base">Fitri Handayani, S.Pd.</h3>
+                    <span class="text-[11px] font-extrabold text-mintGreen block mt-1 bg-green-100 px-3 py-0.5 rounded-full">Guru Sentra Seni</span>
+                    <p class="text-xs text-slate-600 mt-2.5 leading-snug">Kreativitas estetika dan motorik halus anak.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 7. GALERI KEGIATAN SEKOLAH -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mintGreen font-bold text-sm tracking-widest uppercase bg-green-100 px-3.5 py-1 rounded-full">Dokumentasi Nyata</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Galeri Kegiatan PAUD IT Al-Kautsar</h2>
+                <p class="text-slate-600 mt-2">Foto-foto keceriaan anak-anak saat belajar, bermain, dan beribadah bersama.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group overflow-hidden rounded-3xl shadow-lg aspect-[4/3] relative">
+                    <img src="kegiatan sentra.jpg" alt="Kegiatan Sentra PAUD IT Al-Kautsar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-5 flex flex-col justify-end">
+                        <h3 class="text-white font-bold text-lg">Keseruan di Sentra</h3>
+                        <p class="text-white/80 text-sm">Eksplorasi & Bermain</p>
+                    </div>
+                </div>
+
+                <div class="group overflow-hidden rounded-3xl shadow-lg aspect-[4/3] relative">
+                    <img src="mengaji.jpg" alt="Kegiatan Mengaji PAUD IT Al-Kautsar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-5 flex flex-col justify-end">
+                        <h3 class="text-white font-bold text-lg">Mengaji & Tilawati</h3>
+                        <p class="text-white/80 text-sm">Pembiasaan Qur'ani</p>
+                    </div>
+                </div>
+
+                <div class="group overflow-hidden rounded-3xl shadow-lg aspect-[4/3] relative">
+                    <img src="outing class.jpg" alt="Outing Class PAUD IT Al-Kautsar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-5 flex flex-col justify-end">
+                        <h3 class="text-white font-bold text-lg">Outing Class</h3>
+                        <p class="text-white/80 text-sm">Belajar di Luar Sekolah</p>
+                    </div>
+                </div>
+
+                <div class="group overflow-hidden rounded-3xl shadow-lg aspect-[4/3] relative">
+                    <img src="pentas seni.jpg" alt="Pentas Seni PAUD IT Al-Kautsar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-5 flex flex-col justify-end">
+                        <h3 class="text-white font-bold text-lg">Pentas Seni & Kreativitas</h3>
+                        <p class="text-white/80 text-sm">Ajang Unjuk Bakat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. TESTIMONI & PENGALAMAN -->
+    <section id="testimoni" class="py-20 bg-bgCream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mintGreen font-bold text-sm tracking-widest uppercase bg-green-100 px-3.5 py-1 rounded-full">Kata Orang Tua</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Testimoni & Pengalaman</h2>
+                <p class="text-slate-600 mt-2">Cerita nyata dari para orang tua murid tentang perkembangan positif buah hati mereka di PAUD IT Al-Kautsar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between relative">
+                    <div>
+                        <div class="flex text-yellow-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm leading-relaxed">
+                            "Anak saya awalnya sangat pemalu dan butuh pendekatan khusus. Alhamdulillah berkat kesabaran guru-guru di PAUD IT Al-Kautsar yang sangat ramah inklusif, sekarang anak saya jadi jauh lebih mandiri, ceria, dan senang menghafal doa harian!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 text-coralWarm font-bold flex items-center justify-center text-sm">BS</div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Ibu Budi Santoso</h4>
+                            <span class="text-xs text-slate-500 block">Orang Tua dari Alena (TK B)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between relative">
+                    <div>
+                        <div class="flex text-yellow-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm leading-relaxed">
+                            "Guru-gurunya sangat sabar, penyayang, dan komunikatif. Setiap hari selalu ada laporan kegiatan sentra dan perkembangan mengaji anak. Fasilitas sekolahnya juga sangat bersih, Islami, dan ramah anak. Sangat recommended!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-green-100 text-[#588157] font-bold flex items-center justify-center text-sm">RH</div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Bpk. Rahmat Hidayat</h4>
+                            <span class="text-xs text-slate-500 block">Orang Tua dari Kenan (Kelompok Bermain)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-md border-2 border-yellow-100 flex flex-col justify-between relative">
+                    <div>
+                        <div class="flex text-yellow-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm leading-relaxed">
+                            "Program Daycare di sini sangat membantu kami yang bekerja. Anak mendapatkan makan siang bergizi seimbang, waktu istirahat teratur, serta tetap mendapatkan stimulasi edukasi dan nilai Islami yang menyenangkan."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 text-skyBlue font-bold flex items-center justify-center text-sm">AN</div>
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Ibu Anita Rahmawati</h4>
+                            <span class="text-xs text-slate-500 block">Orang Tua dari Zaki (Daycare & TK A)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FORMULIR PENDAFTARAN (PPDB ONLINE) -->
+    <section id="pendaftaran" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-coralWarm font-bold text-sm tracking-widest uppercase bg-orange-100 px-3.5 py-1 rounded-full">Pendaftaran Siswa Baru</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Formulir PPDB Online PAUD IT Al-Kautsar</h2>
+                <p class="text-slate-600 mt-2">Daftarkan buah hati Anda sekarang untuk bergabung bersama lingkungan belajar yang Islami, inklusif, dan menyenangkan.</p>
+            </div>
+
+            <div class="bg-bgCream p-8 sm:p-10 rounded-3xl shadow-xl border-2 border-yellow-200">
+                <form action="#" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-slate-700 font-bold text-sm mb-2">Nama Lengkap Anak</label>
+                            <input type="text" required placeholder="Contoh: Muhammad Al Fatih" class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#588157] bg-white text-slate-800">
+                        </div>
+                        <div>
+                            <label class="block text-slate-700 font-bold text-sm mb-2">Nama Orang Tua / Wali</label>
+                            <input type="text" required placeholder="Contoh: Bpk. Ahmad / Ibu Siti" class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#588157] bg-white text-slate-800">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-slate-700 font-bold text-sm mb-2">Nomor WhatsApp Aktif</label>
+                            <input type="tel" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#588157] bg-white text-slate-800">
+                        </div>
+                        <div>
+                            <label class="block text-slate-700 font-bold text-sm mb-2">Pilihan Program / Layanan</label>
+                            <select required class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#588157] bg-white text-slate-800">
+                                <option value="">-- Pilih Jenjang / Layanan --</option>
+                                <option value="kb">Kelompok Bermain (KB) - Usia 2-4 Tahun</option>
+                                <option value="tka">Taman Kanak-Kanak (TK A) - Usia 4-5 Tahun</option>
+                                <option value="tkb">Taman Kanak-Kanak (TK B) - Usia 5-6 Tahun</option>
+                                <option value="daycare">Daycare (Penitipan Anak Full Day)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-700 font-bold text-sm mb-2">Kategori Peserta Didik</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-slate-200 bg-white cursor-pointer hover:border-yellow-300 transition">
+                                <input type="radio" name="kategori_siswa" value="reguler" checked class="text-[#588157] focus:ring-[#588157]">
+                                <span class="text-sm font-semibold text-slate-700">Kelas Reguler</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 rounded-2xl border border-slate-200 bg-white cursor-pointer hover:border-yellow-300 transition">
+                                <input type="radio" name="kategori_siswa" value="abk" class="text-[#588157] focus:ring-[#588157]">
+                                <span class="text-sm font-semibold text-slate-700">Kelas Inklusif (Ramah ABK)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-slate-700 font-bold text-sm mb-2">Catatan / Pertanyaan Tambahan (Opsional)</label>
+                        <textarea rows="3" placeholder="Tuliskan catatan khusus atau pertanyaan mengenai pendaftaran..." class="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#588157] bg-white text-slate-800"></textarea>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full bg-[#588157] hover:bg-[#3A5A40] text-white font-extrabold px-8 py-4 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 text-base">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Pendaftaran PPDB
+                        </button>
+                        <p class="text-xs text-slate-500 mt-3">Tim admin kami akan segera menghubungi Anda melalui WhatsApp setelah formulir dikirim.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+   <!-- 10. INFORMASI RESMI SEKOLAH & LOKASI KAMPUS UNESA LIDAH WETAN -->
+    <section id="kontak" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-mintGreen font-bold text-sm tracking-widest uppercase bg-green-100 px-3.5 py-1 rounded-full">Hubungi Kami</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Informasi Resmi & Lokasi Kampus</h2>
+                <p class="text-slate-600 mt-2">Kami siap menyambut kunjungan Anda di kantor pengelola kampus.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <div class="lg:col-span-5 bg-bgCream p-8 rounded-3xl border-2 border-yellow-200 shadow-md flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-xl mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-school text-[#588157]"></i> PAUD IT Al-Kautsar
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-amber-700 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-sm text-lg"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Alamat Lokasi</h4>
+                                    <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                        Kampus UNESA Lidah Wetan, Gedung O6 Lantai 1, Lidah Wetan, Kec. Lakarsantri, Surabaya, Jawa Timur 60213
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-[#588157] text-white rounded-2xl flex items-center justify-center shrink-0 shadow-sm text-lg"><i class="fa-brands fa-whatsapp"></i></div>
+                                <div><h4 class="font-bold text-slate-900 text-sm">Telepon / WhatsApp</h4><p class="text-xs text-slate-600 mt-1">0895-4059-83133 (Admin PPDB)</p></div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-sky-600 text-white rounded-2xl flex items-center justify-center shrink-0 shadow-sm text-lg"><i class="fa-solid fa-envelope"></i></div>
+                                <div><h4 class="font-bold text-slate-900 text-sm">Email Resmi</h4><p class="text-xs text-slate-600 mt-1">pauditalkautsar@gmail.com</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-yellow-200/60 flex items-center gap-3">
+                        <a href="https://wa.me/62895405983133" target="_blank" class="w-10 h-10 bg-white rounded-xl shadow-sm border border-yellow-200 flex items-center justify-center text-slate-700 hover:bg-[#588157] hover:text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-xl shadow-sm border border-yellow-200 flex items-center justify-center text-slate-700 hover:bg-coralWarm hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-xl shadow-sm border border-yellow-200 flex items-center justify-center text-slate-700 hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white rounded-xl shadow-sm border border-yellow-200 flex items-center justify-center text-slate-700 hover:bg-red-600 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Peta Google Maps mengarah ke Unesa Lidah Wetan -->
+                <div class="lg:col-span-7 bg-slate-100 rounded-3xl border-2 border-slate-200 overflow-hidden shadow-md flex flex-col justify-between relative min-h-[400px]">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.4005!2d112.67!3d-7.315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fc9a95726217%3A0xf6de41459048a1!2sUniversitas%20Negeri%20Surabaya%20-%20Kampus%20Lidah%20Wetan!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; min-height: 320px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        class="w-full h-full flex-grow">
+                    </iframe>
+                    <div class="p-4 bg-white border-t border-slate-200 flex items-center justify-between flex-wrap gap-3">
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-sm">Lokasi Kampus UNESA Lidah Wetan</h4>
+                            <p class="text-xs text-slate-500">Gedung O6 Lantai 1, Lakarsantri, Surabaya</p>
+                        </div>
+                        <a href="https://maps.google.com/?q=Universitas+Negeri+Surabaya+Kampus+Lidah+Wetan" target="_blank" class="bg-[#588157] hover:bg-[#3A5A40] text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot"></i> Buka Rute di Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- PROFIL PENGEMBANG -->
+    <section id="pengembang" class="py-20 bg-[#FFF9E6] border-t-2 border-yellow-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border-4 border-yellow-200 text-center space-y-6">
+                
+                <!-- Logo UNESA & Logo PAUD UNESA (Urutan Ditukar) -->
+                <div class="flex items-center justify-center gap-6 mb-4">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden shadow-md border border-slate-200 p-1">
+                        <img src="logo unesa.png" alt="Logo UNESA" class="w-full h-full object-contain">
+                    </div>
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden shadow-md border border-slate-200 p-1">
+                        <img src="logo paud unesa.png" alt="Logo PAUD UNESA" class="w-full h-full object-contain">
+                    </div>
+                </div>
+
+                <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-xs font-extrabold shadow-sm">
+                    <i class="fa-solid fa-laptop-code text-coralWarm"></i> Fitur Khusus Pembuat Website
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Identitas Pengembang</h2> 
+                <!-- Foto Pengembang / Kepala Sekolah -->
+                <div class="flex justify-center my-4">
+                    <img src="kepala sekolah.JPEG" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'" alt="Foto Pengembang" class="w-28 h-28 rounded-full object-cover border-4 border-yellow-300 shadow-md">
+                </div>
+
+                <!-- Rincian Identitas -->
+                <div class="max-w-lg mx-auto bg-bgCream p-6 rounded-2xl border border-yellow-200 shadow-sm text-center space-y-2.5 text-slate-700 text-sm sm:text-base">
+                    <p><strong class="text-slate-900">Nama:</strong> Diah Ayu Septiani</p>
+                    <p><strong class="text-slate-900">NIM:</strong> 23010684126/2023C</p>
+                    <p><strong class="text-slate-900">Mata Kuliah:</strong> Edu-Tech for Young Children</p>
+                    <p><strong class="text-slate-900">Dosen Pengampu:</strong> Ibu Fatiha Khoirotunnisa Elfahmi, M.Ed., M.Pd</p>
+                    <p><strong class="text-slate-900">Aplikasi yang digunakan:</strong> Gemini, Google Flow, Visual Studio Code</p>
+                </div>
+
+                <!-- Universitas & Prodi -->
+                <div class="pt-2 text-slate-800 font-bold space-y-1 text-center">
+                    <p class="text-lg text-slate-900">Universitas Negeri Surabaya</p>
+                    <p class="text-coralWarm">Fakultas Ilmu Pendidikan</p>
+                    <p class="text-slate-600 font-semibold text-sm">S1 - Pendidikan Guru Pendidikan Anak Usia Dini</p>
+                    <p class="text-xs text-slate-400 mt-3 font-normal">2026</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- 11. FOOTER -->
+    <footer class="bg-slate-900 text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-[#588157] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h3 class="font-extrabold text-xl tracking-wide">PAUD IT Al-Kautsar</h3>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                        Lembaga pendidikan anak usia dini unggulan yang memadukan nilai-nilai Islam, konsep sekolah inklusif ramah ABK, serta metode pembelajaran sentra yang menyenangkan.
+                    </p>
+                    <div class="pt-2 flex items-center gap-3">
+                        <span class="text-xs bg-green-900/60 text-mintGreen px-3 py-1 rounded-full font-bold border border-green-700/50">Islami</span>
+                        <span class="text-xs bg-orange-900/60 text-coralWarm px-3 py-1 rounded-full font-bold border border-orange-700/50">Inklusif</span>
+                        <span class="text-xs bg-blue-900/60 text-skyBlue px-3 py-1 rounded-full font-bold border border-blue-700/50">Cerdas & Berkarakter</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-yellow-300 mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li><a href="#beranda" class="hover:text-yellow-300 transition">Beranda</a></li>
+                        <li><a href="#profil" class="hover:text-yellow-300 transition">Profil Sekolah</a></li>
+                        <li><a href="#visimisi" class="hover:text-yellow-300 transition">Visi & Misi</a></li>
+                        <li><a href="#program" class="hover:text-yellow-300 transition">Program & Sentra</a></li>
+                        <li><a href="#video" class="hover:text-yellow-300 transition">Video Pembelajaran</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-yellow-300 mb-4">Informasi Orang Tua</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-300">
+                        <li><a href="#guru" class="hover:text-yellow-300 transition">Tenaga Pendidik</a></li>
+                        <li><a href="#galeri" class="hover:text-yellow-300 transition">Galeri Kegiatan</a></li>
+                        <li><a href="#testimoni" class="hover:text-yellow-300 transition">Testimoni Orang Tua</a></li>
+                        <li><a href="#pendaftaran" class="hover:text-yellow-300 transition">PPDB Online</a></li>
+                        <li><a href="#kontak" class="hover:text-yellow-300 transition">Kontak & Lokasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-yellow-300 mb-4">Jam Operasional</h4>
+                    <div class="space-y-2 text-sm text-slate-300">
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-400">Senin - Jumat:</span>
+                            <span class="font-semibold">07.00 - 16.00 WIB</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-400">Sabtu:</span>
+                            <span class="font-semibold">08.00 - 12.00 WIB</span>
+                        </div>
+                        <div class="flex justify-between pt-1">
+                            <span class="text-slate-400">Minggu:</span>
+                            <span class="text-red-400 font-bold">Tutup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 PAUD IT Al-Kautsar. Hak Cipta Dilindungi.</p>
+                <p class="text-slate-400">Jl. Mawar Indah, Waru, Sidoarjo &bull; pauditalkautsar@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTERAKTIF -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function showModal(title, message) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMessage').innerText = message;
+            document.getElementById('customModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.add('hidden');
+        }
+
+        window.onclick = function(event) {
+            const customModal = document.getElementById('customModal');
+            if (event.target === customModal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
